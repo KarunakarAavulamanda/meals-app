@@ -8,9 +8,11 @@ class MealItem extends StatelessWidget {
   const MealItem({
     super.key,
     required this.meal,
+    required this.onSelectMeal,
   });
 
   final Meal meal;
+  final void Function(Meal meal) onSelectMeal;
 
   String get complexityText {
     return meal.complexity.name[0].toUpperCase() +
@@ -24,6 +26,9 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('Complexity: $complexityText'); //Complexity: Simple
+    print('Affordability: $affordabilityText'); //Affordability: Affordable
+    print('Meal Duration: ${meal.duration} min'); //Meal Duration: 35 min
     return Card(
       margin: const EdgeInsets.all(8),
       shape: RoundedRectangleBorder(
@@ -32,7 +37,9 @@ class MealItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          onSelectMeal(meal);
+        },
         child: Stack(
           children: [
             FadeInImage(

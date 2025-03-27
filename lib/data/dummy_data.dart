@@ -94,6 +94,7 @@ const dummyMeals = [
   Meal(
     id: 'm2',
     categories: [
+      'c1',
       'c2',
     ],
     title: 'Toast Hawaii',
@@ -325,6 +326,8 @@ const dummyMeals = [
   Meal(
     id: 'm9',
     categories: [
+      'c1',
+      'c2',
       'c9',
     ],
     title: 'Chocolate Souffle',
